@@ -1,20 +1,34 @@
-import Image from 'next/image';
+'use client';
 
-export const Header = () => {
+import { CategoriaProducto } from '@/tipos/producto';
+
+interface HeaderProps {
+  categoriaActiva: CategoriaProducto | 'todos';
+  setCategoriaActiva: (categoria: CategoriaProducto | 'todos') => void;
+}
+
+export const Header = ({ categoriaActiva, setCategoriaActiva }: HeaderProps) => {
+  const categorias: (CategoriaProducto | 'todos')[] = ['todos', 'figuras', 'prototipos', 'hogar', 'accesorios'];
+
   return (
-    <header className="flex flex-col items-center py-12 gap-4">
-      <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-cyan-500/30">
-        <Image 
-          src="/logo.jpg" 
-          alt="Logo"
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="text-center">
-        <h1 className="text-4xl font-black text-white uppercase italic">
-          Realidad <span className="text-cyan-400">Impresa</span> 3D
-        </h1>
+    <header className="mb-12 text-center">
+      <h1 className="text-6xl font-black mb-4 tracking-tighter uppercase italic text-white">
+        Realidad <span className="text-cyan-400">Impresa</span> 3D
+      </h1>
+      
+      <div className="flex flex-wrap justify-center gap-4 mt-8">
+        {categorias.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setCategoriaActiva(cat)}
+            className={`px-6 py-2 rounded-full border transition-all uppercase text-xs font-bold tracking-widest cursor-pointer
+              ${categoriaActiva === cat 
+                ? 'bg-cyan-400 text-black border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.5)]' 
+                : 'border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+          >
+            {cat}
+          </button>
+        ))}
       </div>
     </header>
   );
