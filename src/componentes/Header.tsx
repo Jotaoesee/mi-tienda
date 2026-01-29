@@ -10,16 +10,20 @@ interface HeaderProps {
 export const Header = ({ categoriaActiva, setCategoriaActiva }: HeaderProps) => {
   const categorias: (CategoriaProducto | 'todos')[] = ['todos', 'figuras', 'prototipos', 'hogar', 'accesorios'];
 
+  const volverArriba = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <> 
-      <div className="text-center pt-8 mb-4">
-        <h1 className="text-6xl font-black tracking-tighter uppercase italic text-white">
+    <div className="sticky top-0 z-50 py-6 bg-transparent backdrop-blur-xl mb-12">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+        
+        <div className="text-4xl font-black uppercase italic text-white tracking-tight ml-8">
           Realidad <span className="text-cyan-400">Impresa</span> 3D
-        </h1>
-      </div>
-      
-      <div className="sticky top-0 z-50 py-8 bg-transparent backdrop-blur-md mb-12">
-        <div className="flex flex-wrap justify-center gap-4">
+        </div>
+
+        {/* Filtros */}
+        <div className="flex flex-wrap justify-center gap-3">
           {categorias.map((cat) => (
             <button
               key={cat}
@@ -32,8 +36,8 @@ export const Header = ({ categoriaActiva, setCategoriaActiva }: HeaderProps) => 
               {cat}
             </button>
           ))}
-        </div>
+        </div>  
       </div>
-    </>
+    </div>
   );
 };
