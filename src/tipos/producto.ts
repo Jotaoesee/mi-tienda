@@ -5,7 +5,7 @@ export interface Producto3D {
   nombre: string;
   descripcion: string;
   precio: number;
-  imagenUrl: string;
+  imagenes: string[];
   categoria: CategoriaProducto;
   dimensiones?: string;
 }
