@@ -18,7 +18,7 @@ export const Header = ({ categoriaActiva, setCategoriaActiva }: HeaderProps) => 
         </h1>
       </div>
       
-      <div className="sticky top-0 z-50 py-8 bg-[#050505]/80 backdrop-blur-md mb-12">
+      <div className="sticky top-0 z-50 py-8 bg-transparent backdrop-blur-md mb-12">
         <div className="flex flex-wrap justify-center gap-4">
           {categorias.map((cat) => (
             <button
