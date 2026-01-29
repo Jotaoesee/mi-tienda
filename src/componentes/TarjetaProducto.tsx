@@ -19,12 +19,10 @@ export const TarjetaProducto = ({ producto }: PropiedadesTarjeta) => {
 
   return (
     <motion.div 
-      // 2. Animación de entrada
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      // 3. Efecto al pasar el ratón (hover)
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
-      className="bg-zinc-900 border border-white/10 rounded-2xl p-4 flex flex-col gap-4 shadow-xl"
+      className="bg-zinc-900 border border-white/10 rounded-2xl p-4 flex flex-col gap-4 shadow-xl max-w-sm mx-auto"
     >
       <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-zinc-800">
         <Image 
@@ -35,14 +33,19 @@ export const TarjetaProducto = ({ producto }: PropiedadesTarjeta) => {
         />
       </div>
       
-      <div className="flex flex-col gap-1">
-        <h3 className="text-lg font-bold text-white">{producto.nombre}</h3>
-        <span className="text-xl font-black text-cyan-400">{producto.precio}€</span>
+      <div className="flex flex-col gap-2"> 
+        <h3 className="text-lg font-bold text-white leading-tight">{producto.nombre}</h3>
+        
+        <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+          {producto.descripcion}
+        </p>
+        
+        <span className="text-xl font-black text-cyan-400 mt-1">{producto.precio}€</span>
       </div>
 
       <button 
         onClick={contactar}
-        className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-2 rounded-lg transition-all active:scale-95 cursor-pointer"
+        className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-2.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-[0_0_15px_rgba(6,182,212,0.3)]"
       >
         Pedir por WhatsApp
       </button>
