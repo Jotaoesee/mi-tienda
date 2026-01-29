@@ -1,15 +1,14 @@
 import { TarjetaProducto } from '@/componentes/TarjetaProducto';
 import { LISTADO_PRODUCTOS } from '@/constantes/productos';
-import { Footer } from '@/componentes/Footer'; 
+import { Footer } from '@/componentes/Footer';
+import { Header } from '@/componentes/Header'; 
 
 export default function PaginaPrincipal() {
   return (
-    <> 
-      <main className="p-8 max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-white mb-8">
-          Mi Tienda 3D
-        </h1>
+    <>
+      <Header /> 
 
+      <main className="p-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {LISTADO_PRODUCTOS.map((producto) => (
             <TarjetaProducto key={producto.id} producto={producto} />
@@ -17,7 +16,7 @@ export default function PaginaPrincipal() {
         </div>
       </main>
 
-      <Footer /> 
+      <Footer />
     </>
   );
 }
