@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect, useRef } from 'react'; 
 import { TarjetaProducto } from '@/componentes/TarjetaProducto';
 import { Footer } from '@/componentes/Footer'; 
 import { Header } from '@/componentes/Header'; 
@@ -14,8 +14,19 @@ import { Producto3D, CategoriaProducto } from '@/tipos/producto';
 export default function PaginaPrincipal() {
   const [categoriaActiva, setCategoriaActiva] = useState<CategoriaProducto | 'todos'>('todos');
   const [modalAbierto, setModalAbierto] = useState(false); 
+  
+  const esPrimeraCarga = useRef(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    if (esPrimeraCarga.current) {
+      esPrimeraCarga.current = false;
+      return;
+    }
+
     const catalogoElement = document.getElementById('catalogo');
     catalogoElement?.scrollIntoView({ 
       behavior: 'smooth', 
