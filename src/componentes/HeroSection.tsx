@@ -3,7 +3,11 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  abrirModal: () => void;
+}
+
+export const HeroSection = ({ abrirModal }: HeroSectionProps) => {
   const scrollToCatalogo = () => {
     const catalogoElement = document.getElementById('catalogo');
     catalogoElement?.scrollIntoView({ behavior: 'smooth' });
@@ -84,8 +88,9 @@ export const HeroSection = () => {
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
             
+            {/* BOTÓN - Abre el modal */}
             <button 
-              onClick={() => window.open('https://wa.me/34600000000?text=Hola!%20Quiero%20información', '_blank')}
+              onClick={abrirModal}
               className="bg-transparent border-2 border-zinc-700 hover:border-cyan-500 text-white font-bold px-8 py-4 rounded-xl transition-all cursor-pointer"
             >
               Pedido Personalizado

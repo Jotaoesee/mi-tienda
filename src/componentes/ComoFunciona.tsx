@@ -3,7 +3,11 @@
 import { motion } from 'framer-motion';
 import { Search, Palette, CreditCard, Truck } from 'lucide-react';
 
-export const ComoFunciona = () => {
+interface ComoFuncionaProps {
+  abrirModal: () => void;
+}
+
+export const ComoFunciona = ({ abrirModal }: ComoFuncionaProps) => {
   const pasos = [
     {
       numero: '01',
@@ -95,12 +99,14 @@ export const ComoFunciona = () => {
                 </p>
               </div>
 
+              {/* Punto conector */}
               <div className={`hidden lg:block absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r ${paso.color} z-10`}></div>
             </motion.div>
           );
         })}
       </div>
 
+      {/* CTA */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -108,12 +114,11 @@ export const ComoFunciona = () => {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="text-center mt-16"
       >
+        <p className="text-zinc-400 mb-6 text-lg">¿Listo para tu proyecto personalizado?</p>
+        
         <button
-          onClick={() => {
-            const catalogoElement = document.getElementById('catalogo');
-            catalogoElement?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-10 py-4 rounded-xl transition-all shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] cursor-pointer"
+          onClick={abrirModal}
+          className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-12 py-4 rounded-xl transition-all shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] cursor-pointer text-lg"
         >
           Empezar ahora
         </button>
