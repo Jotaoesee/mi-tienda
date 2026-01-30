@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Realidad Impresa 3D - Catálogo Digital Premium
 
-## Getting Started
+[![Desplegado en Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://mi-tienda-virid-gamma.vercel.app/)
 
-First, run the development server:
+> **Demo en vivo:** [https://mi-tienda-virid-gamma.vercel.app/](https://mi-tienda-virid-gamma.vercel.app/)
 
-```bash
+Este es el repositorio oficial de **Realidad Impresa 3D**, un catálogo digital de alto impacto visual diseñado para exhibir productos de impresión 3D y gestionar pedidos personalizados de forma eficiente.
+
+La web utiliza un **"Static Stack"** (sin bases de datos externas), lo que garantiza una velocidad de carga instantánea y un despliegue optimizado en la infraestructura de Vercel.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+- **Framework:** Next.js 15 (App Router)
+- **Estética:** Cyber-Craft (Modo oscuro, Glassmorphism, Neón)
+- **Estilos:** Tailwind CSS v4
+- **Animaciones:** Framer Motion
+- **Iconografía:** Lucide React
+- **Despliegue:** Vercel (Hobby Plan)
+
+---
+
+## 🇪🇸 Regla de Oro: Nomenclatura en Español
+
+Para mantener la coherencia total con el dominio del negocio, todo el código sigue una convención estrictamente en español. Esto incluye:
+
+- **Variables y Funciones:** `productosFiltrados`, `abrirModal`, `irArriba`.
+- **Componentes:** `TarjetaProducto`, `BotonScrollTop`, `HeroSection`.
+- **Interfaces:** `Producto3D`, `CategoriaProducto`.
+- **Comentarios:** Documentación interna en castellano.
+
+---
+
+## 📂 Arquitectura del Proyecto
+
+```text
+src/
+├── app/              # Rutas, layouts y página principal
+├── componentes/      # Componentes UI (Atómicos y Secciones)
+├── constantes/       # Datos estáticos (catálogo de productos)
+├── tipos/            # Definiciones de TypeScript e Interfaces
+├── public/           # Assets, imágenes de productos y logotipos
+└── styles/           # Configuraciones globales de CSS
+🚀 Instalación y Desarrollo
+Clonar el repositorio:
+
+Bash
+git clone [https://github.com/tu-usuario/realidad-impresa-3d.git](https://github.com/tu-usuario/realidad-impresa-3d.git)
+Instalar dependencias:
+
+Bash
+npm install
+Ejecutar en local:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+La aplicación estará disponible en http://localhost:3000.
+
+📦 Gestión del Catálogo
+No es necesario acceder a un panel de administración externo. Para añadir, eliminar o editar productos, se debe modificar el archivo central de constantes:
+
+📌 Ruta: src/constantes/productos.ts
+
+Ejemplo de estructura de un producto:
+
+TypeScript
+{
+  id: 'figura-articulada-01',
+  nombre: 'Dragón Articulado',
+  descripcion: 'Figura impresa en filamento seda con alta movilidad.',
+  precio: 15.00,
+  categoria: 'figuras',
+  imagenes: ['/productos/dragon-1.jpg', '/productos/dragon-2.jpg']
+}
+📲 Flujo de Pedidos (WhatsApp)
+La web utiliza un sistema de Enlaces Profundos (Deep Links) hacia WhatsApp para convertir el interés en ventas directas:
+
+Selección: El usuario elige un producto o sube su archivo STL/OBJ.
+
+Generación: El sistema genera un mensaje estructurado con los detalles técnicos.
+
+Conversión: Se redirige al usuario a WhatsApp para finalizar los detalles y el pago vía Bizum.
+
+📄 Licencia y Créditos
+Proyecto desarrollado para Realidad Impresa 3D - Badajoz.
+
+© 2026 Todos los derechos reservados.
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
