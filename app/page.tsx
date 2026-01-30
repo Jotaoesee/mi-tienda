@@ -8,21 +8,20 @@ import { HeroSection } from '@/componentes/HeroSection';
 import { BotonScrollTop } from '@/componentes/BotonScrollTop'; 
 import { LISTADO_PRODUCTOS } from '@/constantes/productos';
 import { Producto3D, CategoriaProducto } from '@/tipos/producto';
+import { ComoFunciona } from '@/componentes/ComoFunciona';
 
 export default function PaginaPrincipal() {
   const [categoriaActiva, setCategoriaActiva] = useState<CategoriaProducto | 'todos'>('todos');
 
   useEffect(() => {
-    if (window.scrollY > 100) {
-      const catalogoElement = document.getElementById('catalogo');
-      if (catalogoElement) {
-        catalogoElement.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' 
-        });
-      }
+    const catalogoElement = document.getElementById('catalogo');
+    if (catalogoElement && window.scrollY > 100) {
+      catalogoElement.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
     }
-  }, [categoriaActiva]); 
+  }, [categoriaActiva]);
 
   const productosFiltrados = categoriaActiva === 'todos' 
     ? LISTADO_PRODUCTOS 
@@ -44,6 +43,8 @@ export default function PaginaPrincipal() {
           ))}
         </div>
       </main>
+
+      <ComoFunciona />
 
       <Footer />
 

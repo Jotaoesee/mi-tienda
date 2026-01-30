@@ -18,9 +18,12 @@ export const Header = ({ categoriaActiva, setCategoriaActiva }: HeaderProps) => 
     <div className="sticky top-0 z-50 py-6 bg-transparent backdrop-blur-xl mb-12">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
         
-        <div className="text-4xl font-black uppercase italic text-white tracking-tight ml-8">
+        <button
+          onClick={volverArriba}
+          className="text-4xl font-black uppercase italic text-white tracking-tight ml-8 hover:text-cyan-400 transition-colors cursor-pointer"
+        >
           Realidad <span className="text-cyan-400">Impresa</span> 3D
-        </div>
+        </button>
 
         {/* Filtros */}
         <div className="flex flex-wrap justify-center gap-3">
